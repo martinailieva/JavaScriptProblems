@@ -1,4 +1,5 @@
-let rows = prompt("insert a number", 5);
+// let rows = prompt("insert a number", 5);
+let rows = 5;
 
 const pyramidPattern = (row) => {
   let output = "";

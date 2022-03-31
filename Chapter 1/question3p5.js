@@ -1,15 +1,16 @@
-let rows = prompt("insert a number", 5);
+let rows = 5;
 
-const pyramidPattern = (row) => {
+function pyramidPattern() {
   let output = "";
-  let k = 1;
-  for (let i = 1; i < row; i++) {
-    for (let j = 1; j <= i; j++) {
-      output += k++ + " ";
+  for (let i = 1; i <= rows; i++) {
+    for (let j = 1; j < i; j++) {}
+    let temp = i;
+    for (let k = 1; k <= i; k++) {
+      output += temp + " ";
+      temp = temp + rows - k;
     }
     console.log(output);
     output = "";
   }
-};
-
-console.log(pyramidPattern(rows));
+}
+pyramidPattern();
