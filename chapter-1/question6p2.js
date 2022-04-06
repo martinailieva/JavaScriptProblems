@@ -5,11 +5,11 @@ const findTheLongestWord = (str, letter) => {
   );
 
   if (isThereWordStartingWithPassedLetter) {
-    let index = stringWords.reduce((acc, curr, i) => {
-      return curr.length >= stringWords[acc].length &&
+    let index = stringWords.reduce((previousWord, currentWord, i) => {
+      return currentWord.length >= stringWords[previousWord].length &&
         stringWords[i].startsWith(letter)
         ? i
-        : acc;
+        : previousWord;
     }, 0);
 
     return stringWords[index];

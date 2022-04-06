@@ -1,5 +1,3 @@
-const myDate = new Date();
-
 const padWithZero = (number) => {
   if (number <= 9) {
     number = ("0" + number).slice(-4);
@@ -14,11 +12,11 @@ const dateToString = (date) => {
   const hour = padWithZero(date.getUTCHours());
   const minutes = padWithZero(date.getUTCMinutes());
   const seconds = padWithZero(date.getUTCSeconds());
-  const zone = padWithZero(0);
+  const zone = padWithZero(date.getMilliseconds());
 
   return `${year}-${month}-${day}T${hour}:${minutes}:${seconds}.${zone}Z`;
 };
 
+const myDate = new Date();
 console.log(myDate);
-
 console.log(dateToString(myDate));

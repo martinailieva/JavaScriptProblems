@@ -1,55 +1,35 @@
-const tokenSystem = (date, string) => {
-  const usersToken = string.split("-");
-  let result = "";
+const padZero = (num) => num.toString().padStart(2, "0");
 
-  const tokens = {
-    year: date.getUTCFullYear(),
-    month: date.getUTCMonth() + 1,
-    day: date.getUTCDate(),
-    hours: date.getUTCHours(),
-    minutes: date.getUTCMinutes(),
-    seconds: date.getUTCSeconds(),
-  };
-
-  const { year, month, day, hours, minutes, seconds } = tokens;
-
-  result += usersToken[0].replace(/YYYY/i, year) + "-";
-  result += usersToken.includes("M")
-    ? usersToken[1].replace(/M/i, month) + "-"
-    : usersToken[1].replace(/MM/i, padWithZero(month)) + "-";
-  result += usersToken.includes("D")
-    ? usersToken[2].replace(/D/i, day) + "-"
-    : usersToken[2].replace(/DD/i, padWithZero(day)) + "-";
-
-  result += usersToken.includes("H")
-    ? usersToken[3].replace(/H/i, hours) + ":"
-    : usersToken[3].replace(/HH/i, padWithZero(hours)) + ":";
-
-  result += usersToken.includes("m")
-    ? usersToken[4].replace(/m/i, minutes) + ":"
-    : usersToken[4].replace(/mm/i, padWithZero(minutes)) + ":";
-
-  result += usersToken.includes("s")
-    ? usersToken[5].replace(/s/i, seconds)
-    : usersToken[5].replace(/ss/i, padWithZero(seconds));
-
-  result += usersToken.includes("A")
-    ? usersToken[6].replace(/a/i, "am")
-    : usersToken[6].replace(/A/i, "AM");
-
-  return result;
-};
-
-const padWithZero = (number) => {
-  if (number <= 9) {
-    number = ("0" + number).slice(-4);
+const getAmPm = (date) => {
+  if (date.getHours() < 12) {
+    return "AM";
+  } else {
+    return "PM";
   }
-  return number;
 };
 
-console.log(
-  tokenSystem(
-    new Date("2022-03-21 12:00:00"),
-    "YYYY-MM-DD-HH-mm-ss-A Is my proof of concept"
-  )
-);
+const tokens = {
+  YYYY: (date) => date.getFullYear(),
+  MM: (date) => padZero(date.getMonth()),
+  M: (date) => date.getMonth(),
+  DD: (date) => padZero(date.getDate()),
+  D: (date) => date.getDate(),
+  A: getAmPm,
+  HH: (date) => padZero(date.getHours()),
+  H: (date) => date.getHours(),
+  mm: (date) => padZero(date.getMinutes()),
+  m: (date) => date.getMinutes(),
+  ss: (date) => padZero(date.getSeconds()),
+  s: (date) => date.getSeconds(),
+};
+
+const tokenFill = (date, string) => {
+  return Object.entries(tokens).reduce((result, [token, func]) => {
+    return result.replace(token, func(date));
+  }, string);
+};
+
+const myDate = new Date();
+const customString = "YYYY-MM-DD HH:mm:ss Is my proof of concept!";
+
+console.log(tokenFill(myDate, customString));

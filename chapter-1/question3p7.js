@@ -1,10 +1,9 @@
 const padWithSpace = (number) => {
-  if (number <= 9) {
-    number = ("  " + number).slice(-4);
-  } else if (number <= 99) {
-    number = (" " + number).slice(-4);
-  }
-  return number;
+  return number <= 9
+    ? (number = "  " + number)
+    : number <= 99
+    ? (number = " " + number)
+    : number;
 };
 
 const maxNumber = 5;
@@ -57,7 +56,7 @@ const seventhPattern = (maxNumber) => {
 console.log(seventhPattern(maxNumber));
 
 // function matrix(n) {
-//   let result = new Array(n).fill().map(() => new Array(n).fill("")); // create empty n x n array
+//   let result = new Array(n).fill().map(() => new Array(n).fill(""));
 //   let counter = 1;
 //   let startCol = 0;
 //   let endCol = n - 1;
