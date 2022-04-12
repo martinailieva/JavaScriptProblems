@@ -16,16 +16,16 @@ const data = [
   5,
 ];
 
-function flattenObj(obj, parentKey = 1, res = []) {
-  for (let key in obj) {
-    const propName = parentKey ? parentKey + "-" + key : key;
-    if (typeof obj[key] === "object") {
-      flattenObj(obj[key], propName, res);
+const flatten = (arr, parentKey = 1, result = []) => {
+  for (let key of arr) {
+    const propName = parentKey ? parentKey + "_" + key : key;
+    if (typeof arr[key] === "object") {
+      flatten(obj[key], propName, result);
     } else {
-      res[propName] = obj[key];
+      result[propName] = obj[key];
     }
   }
-  return res;
-}
+  return result;
+};
 
-console.log(flattenObj(data));
+console.log(flatten(data));

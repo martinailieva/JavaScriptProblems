@@ -18,7 +18,9 @@ const appender = (arrayOne, arrayTwo) => {
   }, []);
 
   nestedArr.push(truthyValues);
-  console.log(arrayOne);
+  return arrayOne;
 };
 
-appender(arr1, arr2);
+console.log(appender(arr1, arr2));
+
+export default appender;
