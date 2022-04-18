@@ -1,4 +1,4 @@
-const data = [
+const obj = [
   {
     person: {
       firstName: "John",
@@ -16,10 +16,10 @@ const data = [
   5,
 ];
 
-const flatten = (arr, parentKey = 1, result = []) => {
-  for (let key of arr) {
+const flatten = (obj, parentKey = 1, result = []) => {
+  for (let key in obj) {
     const propName = parentKey ? parentKey + "_" + key : key;
-    if (typeof arr[key] === "object") {
+    if (typeof obj[key] === "object") {
       flatten(obj[key], propName, result);
     } else {
       result[propName] = obj[key];
@@ -28,4 +28,4 @@ const flatten = (arr, parentKey = 1, result = []) => {
   return result;
 };
 
-console.log(flatten(data));
+console.log(flatten(obj));

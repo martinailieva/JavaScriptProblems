@@ -8,7 +8,7 @@ const getAmPm = (date) => {
   }
 };
 
-const tokens = {
+const dateTokens = {
   YYYY: (date) => date.getFullYear(),
   MM: (date) => padZero(date.getMonth()),
   M: (date) => date.getMonth(),
@@ -24,7 +24,7 @@ const tokens = {
 };
 
 const tokenFill = (date, string) => {
-  return Object.entries(tokens).reduce((result, [token, func]) => {
+  return Object.entries(dateTokens).reduce((result, [token, func]) => {
     return result.replace(token, func(date));
   }, string);
 };

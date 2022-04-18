@@ -14,9 +14,9 @@ const betterBubbleSort = (array) =>
   }, []);
 
 function minMaxSort(array) {
-  var temp = 0;
-  for (var i = 0; i < array.length; i++) {
-    for (var j = i; j < array.length; j++) {
+  let temp = 0;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i; j < array.length; j++) {
       if (array[j] < array[i]) {
         temp = array[j];
         array[j] = array[i];

@@ -15,18 +15,7 @@ const arr2 = [
   [1000, 1001],
 ];
 
-const isObj = (obj) => {
-  if (
-    typeof obj !== undefined &&
-    obj !== null &&
-    typeof obj === "object" &&
-    typeof obj !== "function"
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const isObject = (value) => value && typeof value === "object";
 
 const appender = (arrOne, arrTwo) => {
   const objects = [];
@@ -35,7 +24,7 @@ const appender = (arrOne, arrTwo) => {
   for (let j = 0; j < arrTwo.length; j++) {
     if (Array.isArray(arrTwo[j])) {
       arrays.push(arrTwo[j]);
-    } else if (isObj(arrTwo[j])) {
+    } else if (isObject(arrTwo[j])) {
       objects.push(arrTwo[j]);
     }
   }

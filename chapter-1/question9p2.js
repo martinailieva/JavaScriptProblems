@@ -58,15 +58,21 @@ function getQuarter() {
 
 function getDayOfMonth(date) {
   const day = date.getDate().toString();
-  let splitted = day.split("");
+  const splitted = day.split("");
+  const secondDateChar = splitted[1];
 
-  if (splitted[1] === "1" && day !== "11") {
+  if ((secondDateChar === "1" && day !== "11") || day === "1") {
     return day + "st";
-  } else if (splitted[1] === "2" && day !== "12") {
+  } else if ((secondDateChar === "2" && day !== "12") || day === "2") {
     return day + "nd";
-  } else if (splitted[1] === "3") {
+  } else if ((secondDateChar === "3" && day !== "13") || day === "3") {
     return day + "rd";
-  } else if (splitted[1] > "3" || day === "11" || day === "12") {
+  } else if (
+    secondDateChar > "3" ||
+    day === "11" ||
+    day === "12" ||
+    day === "13"
+  ) {
     return day + "th";
   }
 }
@@ -77,7 +83,7 @@ function getWeekOfYear() {
   return (result = Math.ceil((date.getDay() + 1 + numberOfDays) / 7));
 }
 
-const obj = {
+const dateTokens = {
   YYYY: (date) => date.getFullYear(),
   MMMM: getMonthLongName,
   MMM: getMonthShortName,
@@ -100,7 +106,7 @@ const obj = {
 };
 
 function formatSentence(date, sentence) {
-  return Object.entries(obj).reduce((result, [pattern, fun]) => {
+  return Object.entries(dateTokens).reduce((result, [pattern, fun]) => {
     return result.replace(pattern, fun(date));
   }, sentence);
 }

@@ -24,15 +24,12 @@ const randomize = (arr) => {
 };
 
 const getLongestSequence = (array) => {
-  let longestSequence = [];
-  array.reduce((previousSequence, currentSequence) => {
+  return array.reduce((previousSequence, currentSequence) => {
     return (longestSequence =
       previousSequence.length < currentSequence.length
         ? currentSequence
         : previousSequence);
-  }, longestSequence);
-
-  return longestSequence;
+  }, []);
 };
 
 console.log(randomize(array));

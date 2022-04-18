@@ -11,16 +11,11 @@ const arr2 = [
 ];
 
 const appender = (arrayOne, arrayTwo) => {
-  const nestedArr = arrayOne.find((element) => Array.isArray(element));
-  const truthyValues = arrayTwo.reduce((result, currentValue) => {
-    currentValue ? result.push(currentValue) : currentValue;
-    return result;
-  }, []);
+  const nestedArr = arrayOne.find(Array.isArray);
+  const truthyValues = arrayTwo.filter(Boolean);
 
-  nestedArr.push(truthyValues);
+  nestedArr.push(...truthyValues);
   return arrayOne;
 };
 
 console.log(appender(arr1, arr2));
-
-export default appender;

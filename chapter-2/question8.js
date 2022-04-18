@@ -11,15 +11,10 @@ const weight = 26;
 
 const weightCounter = (item) => {
   let counter = 0;
-  if (typeof item === "object" && item) {
+  if ((typeof item === "object" && item) || Array.isArray(item)) {
     counter += 10;
     for (const key in item) {
       counter += weightCounter(item[key]);
-    }
-  } else if (Array.isArray(item)) {
-    counter += 10;
-    for (let j = 0; j < item.length; j++) {
-      counter += weightCounter(item[j]);
     }
   }
   if (typeof item === "string") {
