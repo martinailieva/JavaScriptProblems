@@ -1,38 +1,24 @@
-var data = [
+function typeCounter(arr) {
+    return arr.reduce(function (acc, curr) {
+        if (acc[typeof curr]) {
+            acc[typeof curr]++;
+        }
+        else {
+            acc[typeof curr] = 1;
+        }
+        return acc;
+    }, {});
+}
+var array = [
     6,
     "Test",
     "value",
     1,
     undefined,
     null,
-    { name: "john.doe", role: "admin" },
+    function () {
+        console.log("Hello,  world!");
+    },
+    { count: 5 },
 ];
-var weight = 2;
-var findByWeight = function (obj) {
-    var counter = 0;
-    Object.values(obj).forEach(function (item) {
-        if (typeof item === "string") {
-            counter += 8;
-        }
-        else if (typeof item === "number") {
-            counter += 4;
-        }
-        else if (!item && typeof item === "object") {
-            counter += 2;
-        }
-        else if (typeof item === "object" && typeof item !== null) {
-            counter += 10 + +findByWeight(item);
-        }
-        else if (typeof item === "function" || Array.isArray(item)) {
-            counter += 10 + +findByWeight(item);
-        }
-        else if (typeof item === undefined) {
-            counter += 2;
-        }
-        else if (typeof item === "boolean") {
-            counter += 4;
-        }
-    });
-    return counter > weight ? true : false;
-};
-console.log(findByWeight(data));
+console.log(typeCounter(array));

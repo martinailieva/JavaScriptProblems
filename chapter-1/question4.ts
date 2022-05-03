@@ -1,13 +1,4 @@
-type AllTypesArray = (
-  | string
-  | number
-  | (() => void)
-  | {
-      count: number;
-    }
-)[];
-
-const typeCounter = (arr: AllTypesArray) => {
+function typeCounter<T>(arr: T[]) {
   return arr.reduce((acc, curr) => {
     if (acc[typeof curr]) {
       acc[typeof curr]++;
@@ -16,7 +7,7 @@ const typeCounter = (arr: AllTypesArray) => {
     }
     return acc;
   }, {});
-};
+}
 
 const array = [
   6,
