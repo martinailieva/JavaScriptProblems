@@ -9,7 +9,7 @@ const dataObj = [
 ];
 const givenWeight = 26;
 
-const weightCounter = (item: unknown) => {
+const weightCounter = (item: unknown): number => {
   let counter = 0;
   if ((typeof item === "object" && item) || Array.isArray(item)) {
     counter += 10;
@@ -34,7 +34,7 @@ const weightCounter = (item: unknown) => {
   return counter;
 };
 
-const findByGivenWeight = (array: any[], weight: number) => {
+const findByGivenWeight = (array: unknown[], weight: number): boolean => {
   let hasEqualWeight = false;
   for (let i = 0; i < array.length; i++) {
     if (weightCounter(array[i]) === weight) {

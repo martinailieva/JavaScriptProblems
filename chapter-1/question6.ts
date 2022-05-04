@@ -1,4 +1,4 @@
-function findTheLongestWord(str: string | string[]) {
+function findTheLongestWord(str: string | string[]): string {
   if (typeof str === "string") {
     str = str.replace(/[^a-zA-Z0-9 ]/g, "").split(" ");
   }

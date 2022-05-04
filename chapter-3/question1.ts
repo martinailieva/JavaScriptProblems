@@ -3,14 +3,14 @@ interface Array<T> {
   betterBubbleSort(array: number[]): number[];
   typeCounter<T>(arr: T[]): {};
   findObject<T>(arr: Array<T>, obj: T): {};
-  appendEvenOdd<T>(arr1: (number[] | string[])[], arr2: T[]): any;
+  appendEvenOdd<T>(arr1: (number[] | string[])[], arr2: T[]): unknown;
   flatten(obj: {}, parentKey: number, result: string[]): {};
   removeInner(arr: number[], percent: number): number[];
 }
 
 const arr: number[] = [6, 4, 3, 1, 9, 44, 33, 2];
 
-Array.prototype.getOddNumbersCount = (array: number[]) => {
+Array.prototype.getOddNumbersCount = (array: number[]): number => {
   return array.reduce(
     (accumulator, currentValue) =>
       currentValue % 2 > 0 ? accumulator + 1 : accumulator,
@@ -20,7 +20,7 @@ Array.prototype.getOddNumbersCount = (array: number[]) => {
 
 console.log(arr.getOddNumbersCount(arr));
 
-Array.prototype.betterBubbleSort = (array: number[]) =>
+Array.prototype.betterBubbleSort = (array: number[]): number[] =>
   array.reduce((accumulatedData, currentElement) => {
     let index = 0;
     while (
@@ -33,7 +33,7 @@ Array.prototype.betterBubbleSort = (array: number[]) =>
     return accumulatedData;
   }, []);
 
-Array.prototype.typeCounter = function typeCounter<T>(arr: T[]) {
+Array.prototype.typeCounter = function typeCounter<T>(arr: T[]): string[] {
   return arr.reduce((acc, curr) => {
     if (acc[typeof curr]) {
       acc[typeof curr]++;
@@ -41,10 +41,13 @@ Array.prototype.typeCounter = function typeCounter<T>(arr: T[]) {
       acc[typeof curr] = 1;
     }
     return acc;
-  }, {});
+  }, []);
 };
 
-Array.prototype.findObject = function findObject<T>(arr: Array<T>, obj: T) {
+Array.prototype.findObject = function findObject<T>(
+  arr: Array<T>,
+  obj: T
+): unknown {
   if (!arr || !obj || arr.length === 0) {
     return false;
   }
@@ -67,7 +70,7 @@ const isObject = (value: {}) => value && typeof value === "object";
 Array.prototype.appendEvenOdd = function appendEvenOdd<T>(
   arr1: (number[] | string[])[],
   arr2: T[]
-) {
+): unknown {
   const arrays = arr2.filter(Array.isArray).flat();
   const objects = arr2.filter(isObject);
 
@@ -80,7 +83,7 @@ Array.prototype.flatten = function flatten(
   obj: {},
   parentKey = 1,
   result: string[] = []
-) {
+): string[] {
   for (let key in obj) {
     const propName = parentKey ? parentKey + "_" + key : key;
     if (typeof obj[key] === "object") {
@@ -92,7 +95,7 @@ Array.prototype.flatten = function flatten(
   return result;
 };
 
-Array.prototype.removeInner = (arr: number[], percent: number) => {
+Array.prototype.removeInner = (arr: number[], percent: number): number[] => {
   const arrLength = arr.length;
 
   let calculatePercentage = (percent / 100) * arrLength;

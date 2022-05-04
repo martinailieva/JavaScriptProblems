@@ -1,6 +1,6 @@
 const rows = 5;
 
-const columnPyramidPattern = (row: number) => {
+const columnPyramidPattern = (row: number): void => {
   let output = "";
   for (let i = 1; i <= row; i++) {
     for (let j = 1; j < i; j++) {}

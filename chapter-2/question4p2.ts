@@ -1,7 +1,7 @@
 const organizedArrayOfNums = [1, 2, 3, 4, 5, 6, 7];
 const divisible = 2;
 
-const calculateDivisible = (array: number[], number: number) => {
+const calculateDivisible = (array: number[], number: number): number[] => {
   return array.reduce(
     (accumulator, currentValue) =>
       currentValue % number === 0

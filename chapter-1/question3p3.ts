@@ -1,6 +1,6 @@
 const rows = 5;
 
-const reverseRowPattern = (row: number) => {
+const reverseRowPattern = (row: number): void => {
   let output = "";
 
   for (let i = 1; i <= row; i++) {

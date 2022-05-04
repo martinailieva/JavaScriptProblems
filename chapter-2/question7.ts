@@ -1,6 +1,6 @@
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const randomize = (arr: number[]) => {
+const randomize = (arr: number[]): number[] => {
   const randomizeArray = arr.sort(() => Math.random() - 0.5);
   console.log(randomizeArray);
 

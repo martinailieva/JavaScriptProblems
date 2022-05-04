@@ -12,7 +12,7 @@ const array2 = [
   6,
 ];
 
-function insertTruthyValuesInArray<T>(arrayOne: One, arrayTwo: Array<T>) {
+function insertTruthyValuesInArray<T>(arrayOne: One, arrayTwo: Array<T>): One {
   const nestedArr = arrayOne.find(Array.isArray);
   const truthyValues = arrayTwo.filter(Boolean);
 
@@ -21,7 +21,3 @@ function insertTruthyValuesInArray<T>(arrayOne: One, arrayTwo: Array<T>) {
 }
 
 console.log(insertTruthyValuesInArray(array1, array2));
-
-// function appenderFP<T>(arr1: One, arr2: Array<T>) {
-//   arr1.map((el) => (Array.isArray(el) ? [...el, ...arr2.filter(Boolean)] : el));
-// }

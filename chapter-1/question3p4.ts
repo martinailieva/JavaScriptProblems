@@ -1,6 +1,6 @@
 const rows = 5;
 
-const diamondPattern = (row: number) => {
+const diamondPattern = (row: number): void => {
   let output = "";
   for (let i = 1; i <= row; i++) {
     for (let j = i; j <= row; j++) {

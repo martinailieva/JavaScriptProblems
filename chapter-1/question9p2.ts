@@ -1,4 +1,4 @@
-const padZero = (num: number) => num.toString().padStart(2, "0");
+const padZero = (num: number): string => num.toString().padStart(2, "0");
 
 const monthName = [
   "January",
@@ -24,27 +24,27 @@ const dayOfWeekName = [
   "Sunday",
 ];
 
-function getDayShortName(date) {
+function getDayShortName(date: Date): string {
   const index = date.getDay();
   return dayOfWeekName[index - 1].substring(0, 3);
 }
 
-function getDayLongName(date) {
+function getDayLongName(date: Date): string {
   const index = date.getDay();
   return dayOfWeekName[index - 1];
 }
 
-function getMonthShortName(date) {
+function getMonthShortName(date: Date): string {
   const index = date.getMonth();
   return monthName[index].substring(0, 3);
 }
 
-function getMonthLongName(date) {
+function getMonthLongName(date: Date): string {
   const index = date.getMonth();
   return monthName[index];
 }
 
-function getQuarter() {
+function getQuarter(): 1 | 2 | 3 | 4 {
   if (date.getMonth() < 2) {
     return 1;
   } else if (date.getMonth() < 5) {
@@ -56,7 +56,7 @@ function getQuarter() {
   }
 }
 
-function getDayOfMonth(date: Date) {
+function getDayOfMonth(date: Date): string {
   const day = date.getDate().toString();
   const splitted = day.split("");
   const secondDateChar = splitted[1];
@@ -77,7 +77,7 @@ function getDayOfMonth(date: Date) {
   }
 }
 
-function getWeekOfYear() {
+function getWeekOfYear(): number {
   const janFirst = new Date(date.getFullYear(), 0, 1);
   let numberOfDays = Math.floor((+date - +janFirst) / (24 * 60 * 60 * 1000));
   return Math.ceil((date.getDay() + 1 + numberOfDays) / 7);
@@ -105,7 +105,7 @@ const dateTokens = {
   W: getWeekOfYear,
 };
 
-function formatSentence(date: Date, sentence: string) {
+function formatSentence(date: Date, sentence: string): string {
   return Object.entries(dateTokens).reduce((result, [pattern, fun]) => {
     return result.replace(pattern, fun(date).toString());
   }, sentence);

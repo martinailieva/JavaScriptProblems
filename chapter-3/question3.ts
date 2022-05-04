@@ -33,6 +33,6 @@ class Color {
   };
 }
 
-const color = new Color(0, 255, 50, "#001");
+const color = new Color(0, 255, 50, "#123");
 console.log(color.getColorRGB());
 console.log(color.getColorShortHex());

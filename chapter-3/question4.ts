@@ -10,7 +10,7 @@ class Watch {
   }
 
   showTime = (format = null, timezone = null) => {
-    const padZero = (num) => num.toString().padStart(2, "0");
+    const padZero = (num: number): string => num.toString().padStart(2, "0");
 
     const dateTokens = {
       YYYY: (date: Date) => date.getFullYear(),
@@ -26,20 +26,20 @@ class Watch {
       s: (date: Date) => date.getSeconds(),
     };
 
-    const regularTime = () => {
+    const regularTime = (): string => {
       const hours = this.date.getHours();
       const minutes = this.date.getMinutes();
       const seconds = this.date.getSeconds();
       return `${hours}:${minutes}:${seconds}`;
     };
 
-    const tokenFill = (date, format) => {
+    const tokenFill = (date: Date, format: any): any => {
       return Object.entries(dateTokens).reduce((result, [token, func]) => {
         return result.replace(token, func(date));
       }, format);
     };
 
-    const timeInDifferentTimezones = (format, timezoneDate) => {
+    const timeInDifferentTimezones = (format: string, timezoneDate: string) => {
       let invdate = new Date(
         this.date.toLocaleString("en-US", {
           timeZone: timezoneDate,
@@ -48,7 +48,6 @@ class Watch {
       return tokenFill(invdate, format);
     };
 
-    let intervalId = 0;
     if (!format && !timezone) {
       setInterval(() => {
         this.date = new Date();

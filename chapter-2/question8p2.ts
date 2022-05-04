@@ -9,7 +9,7 @@ const data = [
 ];
 const weight = 2;
 
-const findByWeight = (obj) => {
+const findByWeight = (obj: {}) => {
   let counter = 0;
   Object.values(obj).forEach((item) => {
     if (typeof item === "string") {

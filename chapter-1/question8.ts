@@ -1,4 +1,4 @@
-const timeDifference = (dateOne: Date, dateTwo: Date) => {
+const timeDifference = (dateOne: Date, dateTwo: Date): string => {
   if (dateOne instanceof Date && dateTwo instanceof Date) {
     let difference = new Date(Math.abs(+dateTwo - +dateOne));
 

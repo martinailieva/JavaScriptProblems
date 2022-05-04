@@ -1,11 +1,6 @@
-const padWithZero = (number: number | string) => {
-  if (number <= 9) {
-    number = ("0" + number).slice(-4);
-  }
-  return number;
-};
+const padWithZero = (num: number): string => num.toString().padStart(2, "0");
 
-const dateToString = (date: Date) => {
+const dateToString = (date: Date): string => {
   const day = padWithZero(date.getDate());
   const month = padWithZero(date.getMonth() + 1);
   const year = date.getFullYear();

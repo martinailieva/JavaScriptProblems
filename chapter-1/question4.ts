@@ -1,4 +1,4 @@
-function typeCounter<T>(arr: T[]) {
+function typeCounter<T>(arr: T[]): T[] {
   return arr.reduce((acc, curr) => {
     if (acc[typeof curr]) {
       acc[typeof curr]++;
@@ -6,7 +6,7 @@ function typeCounter<T>(arr: T[]) {
       acc[typeof curr] = 1;
     }
     return acc;
-  }, {});
+  }, []);
 }
 
 const array = [

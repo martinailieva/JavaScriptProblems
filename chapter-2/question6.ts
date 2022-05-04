@@ -3,7 +3,7 @@ const numberArray = [
 ];
 const percentage = 50;
 
-const removeInner = (arr: number[], percent: number) => {
+const removeInner = (arr: number[], percent: number): number[] => {
   const arrLength = arr.length;
 
   let calculatePercentage = (percent / 100) * arrLength;

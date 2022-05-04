@@ -1,6 +1,6 @@
-const padZero = (num: number) => num.toString().padStart(2, "0");
+const padZero = (num: number): string => num.toString().padStart(2, "0");
 
-const getAmPm = (date: Date) => {
+const getAmPm = (date: Date): "AM" | "PM" => {
   if (date.getHours() < 12) {
     return "AM";
   } else {
@@ -23,7 +23,7 @@ const dateTokens = {
   s: (date: Date) => date.getSeconds(),
 };
 
-const tokenFill = (date: Date, string: string) => {
+const tokenFill = (date: Date, string: string): string => {
   return Object.entries(dateTokens).reduce((result, [token, func]) => {
     return result.replace(token, func(date).toString());
   }, string);

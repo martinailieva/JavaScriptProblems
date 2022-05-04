@@ -1,4 +1,4 @@
-const padWithSpace = (number: number | string) => {
+const padWithSpace = (number: number | string): number | string => {
   return number <= 9
     ? (number = "  " + number)
     : number <= 99
@@ -10,7 +10,7 @@ const maxNumber = 5;
 let row = "";
 let i: number, j: number, k: number, m: number;
 
-const spiralPattern = (maxNumber: number) => {
+const spiralPattern = (maxNumber: number): string => {
   let array = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
