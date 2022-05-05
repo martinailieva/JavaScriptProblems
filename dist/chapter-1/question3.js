@@ -1,5 +1,5 @@
 "use strict";
-const rows = 5;
+const rowsPattern1 = 5;
 const pyramidPattern = (row) => {
     let output = "";
     for (let i = 1; i <= row; i++) {
@@ -10,4 +10,4 @@ const pyramidPattern = (row) => {
         output = "";
     }
 };
-console.log(pyramidPattern(rows));
+console.log(pyramidPattern(rowsPattern1));

@@ -1,5 +1,5 @@
 "use strict";
-const rows = 5;
+const rowsPattern2 = 5;
 const halfDiamondPattern = (row) => {
     let output = "";
     for (let i = 1; i <= row; i++) {
@@ -17,4 +17,4 @@ const halfDiamondPattern = (row) => {
         output = "";
     }
 };
-console.log(halfDiamondPattern(rows));
+console.log(halfDiamondPattern(rowsPattern2));

@@ -23,7 +23,7 @@ const flatten = (obj, parentKey = 1, result = []) => {
             flatten(obj[key], +propName, result);
         }
         else {
-            result[propName] = obj[key];
+            result[+propName] = obj[key];
         }
     }
     return result;

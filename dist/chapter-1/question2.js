@@ -1,6 +1,6 @@
 "use strict";
-const arrayOfNumbers = [6, 4, 3, 1, 9, 44, 33, 2];
-const betterBubbleSort = (array) => array.reduce((accumulatedData, currentElement) => {
+const arrayOfNums = [6, 4, 3, 1, 9, 44, 33, 2];
+const bubbleSort = (array) => array.reduce((accumulatedData, currentElement) => {
     let index = 0;
     while (index < accumulatedData.length &&
         currentElement > accumulatedData[index]) {
@@ -9,4 +9,4 @@ const betterBubbleSort = (array) => array.reduce((accumulatedData, currentElemen
     accumulatedData.splice(index, 0, currentElement);
     return accumulatedData;
 }, []);
-console.log(betterBubbleSort(arrayOfNumbers));
+console.log(betterBubbleSort(arrayOfNums));

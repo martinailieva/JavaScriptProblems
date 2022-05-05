@@ -13,7 +13,7 @@ const allTypesArray = [
   { name: "John Doe" },
 ];
 
-function findObject<T>(arr: Array<T>, obj: T): {} {
+function findObject(arr: any[], obj: {}): {} {
   if (!arr || !obj || arr.length === 0) {
     return false;
   }

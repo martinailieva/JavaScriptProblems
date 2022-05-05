@@ -1,5 +1,5 @@
 "use strict";
-const padZero = (num) => num.toString().padStart(2, "0");
+const padZeroDate = (num) => num.toString().padStart(2, "0");
 const getAmPm = (date) => {
     if (date.getHours() < 12) {
         return "AM";
@@ -8,22 +8,22 @@ const getAmPm = (date) => {
         return "PM";
     }
 };
-const dateTokens = {
+const dateTokensShort = {
     YYYY: (date) => date.getFullYear(),
-    MM: (date) => padZero(date.getMonth()),
+    MM: (date) => padZeroDate(date.getMonth()),
     M: (date) => date.getMonth(),
-    DD: (date) => padZero(date.getDate()),
+    DD: (date) => padZeroDate(date.getDate()),
     D: (date) => date.getDate(),
     A: getAmPm,
-    HH: (date) => padZero(date.getHours()),
+    HH: (date) => padZeroDate(date.getHours()),
     H: (date) => date.getHours(),
-    mm: (date) => padZero(date.getMinutes()),
+    mm: (date) => padZeroDate(date.getMinutes()),
     m: (date) => date.getMinutes(),
-    ss: (date) => padZero(date.getSeconds()),
+    ss: (date) => padZeroDate(date.getSeconds()),
     s: (date) => date.getSeconds(),
 };
 const tokenFill = (date, string) => {
-    return Object.entries(dateTokens).reduce((result, [token, func]) => {
+    return Object.entries(dateTokensShort).reduce((result, [token, func]) => {
         return result.replace(token, func(date).toString());
     }, string);
 };

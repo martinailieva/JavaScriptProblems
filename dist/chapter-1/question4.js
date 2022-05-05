@@ -10,7 +10,7 @@ function typeCounter(arr) {
         return acc;
     }, []);
 }
-const array = [
+const exampleArray = [
     6,
     "Test",
     "value",
@@ -22,4 +22,4 @@ const array = [
     },
     { count: 5 },
 ];
-console.log(typeCounter(array));
+console.log(typeCounter(exampleArray));

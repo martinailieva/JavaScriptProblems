@@ -1,4 +1,4 @@
-const rows = 5;
+const rowsPattern1 = 5;
 
 const pyramidPattern = (row: number): void => {
   let output = "";
@@ -11,4 +11,4 @@ const pyramidPattern = (row: number): void => {
   }
 };
 
-console.log(pyramidPattern(rows));
+console.log(pyramidPattern(rowsPattern1));

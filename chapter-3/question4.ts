@@ -3,7 +3,7 @@ class Watch {
   format: string;
   timezone: string;
 
-  constructor(date = new Date(), format = null, timezone = null) {
+  constructor(date = new Date(), format = "", timezone = "") {
     this.date = date;
     this.format = format;
     this.timezone = timezone;
@@ -69,6 +69,6 @@ class Watch {
 
 const watch = new Watch();
 // console.log(watch.showTime());
-console.log(watch.showTime("YYYY-MM-DD HH:mm:ss"));
+// console.log(watch.showTime("YYYY-MM-DD HH:mm:ss"));
 // console.log(watch.showTime("YYYY-MM-DD HH:mm:ss", "Asia/Shanghai"));
 // console.log(watch.showTime("YYYY-MM-DD HH:mm:ss", "Europe/Sofia"));

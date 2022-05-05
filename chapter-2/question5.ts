@@ -16,13 +16,13 @@ const personInformation = [
   5,
 ];
 
-const flatten = (obj: {}, parentKey = 1, result: string[] = []): string[] => {
+const flatten = (obj: any, parentKey = 1, result: string[] = []): string[] => {
   for (let key in obj) {
     const propName = parentKey ? parentKey + "_" + key : key;
     if (typeof obj[key] === "object") {
       flatten(obj[key], +propName, result);
     } else {
-      result[propName] = obj[key];
+      result[+propName] = obj[key];
     }
   }
   return result;

@@ -1,4 +1,4 @@
-const rows = 5;
+const rowsPattern4 = 5;
 
 const diamondPattern = (row: number): void => {
   let output = "";
@@ -24,4 +24,4 @@ const diamondPattern = (row: number): void => {
   }
 };
 
-console.log(diamondPattern(rows));
+console.log(diamondPattern(rowsPattern4));

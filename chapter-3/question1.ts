@@ -1,14 +1,12 @@
 interface Array<T> {
   getOddNumbersCount(array: number[]): number;
   betterBubbleSort(array: number[]): number[];
-  typeCounter<T>(arr: T[]): {};
-  findObject<T>(arr: Array<T>, obj: T): {};
-  appendEvenOdd<T>(arr1: (number[] | string[])[], arr2: T[]): unknown;
-  flatten(obj: {}, parentKey: number, result: string[]): {};
+  typeCounter(arr: any[]): string[];
+  findObject(arr: any[], obj: any): unknown;
+  appendEvenOdd(arr1: (number[] | string[])[], arr2: any[]): unknown;
+  flatten(obj: any, parentKey: number, result: string[]): any;
   removeInner(arr: number[], percent: number): number[];
 }
-
-const arr: number[] = [6, 4, 3, 1, 9, 44, 33, 2];
 
 Array.prototype.getOddNumbersCount = (array: number[]): number => {
   return array.reduce(
@@ -21,7 +19,7 @@ Array.prototype.getOddNumbersCount = (array: number[]): number => {
 console.log(arr.getOddNumbersCount(arr));
 
 Array.prototype.betterBubbleSort = (array: number[]): number[] =>
-  array.reduce((accumulatedData, currentElement) => {
+  array.reduce<number[]>((accumulatedData, currentElement) => {
     let index = 0;
     while (
       index < accumulatedData.length &&
@@ -33,7 +31,7 @@ Array.prototype.betterBubbleSort = (array: number[]): number[] =>
     return accumulatedData;
   }, []);
 
-Array.prototype.typeCounter = function typeCounter<T>(arr: T[]): string[] {
+Array.prototype.typeCounter = function typeCounter(arr: any[]): string[] {
   return arr.reduce((acc, curr) => {
     if (acc[typeof curr]) {
       acc[typeof curr]++;
@@ -44,10 +42,7 @@ Array.prototype.typeCounter = function typeCounter<T>(arr: T[]): string[] {
   }, []);
 };
 
-Array.prototype.findObject = function findObject<T>(
-  arr: Array<T>,
-  obj: T
-): unknown {
+Array.prototype.findObject = function findObject(arr: any, obj: any): unknown {
   if (!arr || !obj || arr.length === 0) {
     return false;
   }
@@ -55,7 +50,7 @@ Array.prototype.findObject = function findObject<T>(
   return (
     arr.includes(obj) ||
     !!arr.find(
-      (item) =>
+      (item: any) =>
         item &&
         typeof item === "object" &&
         findObject(Array.isArray(item) ? item : Object.values(item), {
@@ -65,14 +60,14 @@ Array.prototype.findObject = function findObject<T>(
   );
 };
 
-const isObject = (value: {}) => value && typeof value === "object";
+const isObj = (value: {}) => value && typeof value === "object";
 
 Array.prototype.appendEvenOdd = function appendEvenOdd<T>(
   arr1: (number[] | string[])[],
   arr2: T[]
 ): unknown {
   const arrays = arr2.filter(Array.isArray).flat();
-  const objects = arr2.filter(isObject);
+  const objects = arr2.filter(isObj);
 
   return arr1.map((el, index) =>
     index % 2 === 0 ? [...el, ...arrays] : [...el, ...objects]
@@ -80,7 +75,7 @@ Array.prototype.appendEvenOdd = function appendEvenOdd<T>(
 };
 
 Array.prototype.flatten = function flatten(
-  obj: {},
+  obj: any,
   parentKey = 1,
   result: string[] = []
 ): string[] {
@@ -89,7 +84,7 @@ Array.prototype.flatten = function flatten(
     if (typeof obj[key] === "object") {
       flatten(obj[key], +propName, result);
     } else {
-      result[propName] = obj[key];
+      result[+propName] = obj[key];
     }
   }
   return result;

@@ -1,5 +1,5 @@
 interface Object {
-  deepCopy<T>(): {} | T[];
+  deepCopy(): any;
 }
 
 const personData = {
@@ -16,8 +16,8 @@ const personData = {
   ],
 };
 
-function deepCopyFunction<T>() {
-  let outObject: {} | T[], value: T, key: string;
+function deepCopyFunction() {
+  let outObject: any, value: any, key: string;
   outObject = Array.isArray(this) ? [] : {};
 
   for (key in this) {

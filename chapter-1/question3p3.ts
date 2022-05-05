@@ -1,4 +1,4 @@
-const rows = 5;
+const rowsPattern3 = 5;
 
 const reverseRowPattern = (row: number): void => {
   let output = "";
@@ -15,4 +15,4 @@ const reverseRowPattern = (row: number): void => {
   }
 };
 
-console.log(reverseRowPattern(rows));
+console.log(reverseRowPattern(rowsPattern3));

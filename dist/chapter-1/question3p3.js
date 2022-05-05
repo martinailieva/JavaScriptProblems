@@ -1,5 +1,5 @@
 "use strict";
-const rows = 5;
+const rowsPattern3 = 5;
 const reverseRowPattern = (row) => {
     let output = "";
     for (let i = 1; i <= row; i++) {
@@ -13,4 +13,4 @@ const reverseRowPattern = (row) => {
         output = "";
     }
 };
-console.log(reverseRowPattern(rows));
+console.log(reverseRowPattern(rowsPattern3));

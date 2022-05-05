@@ -1,6 +1,6 @@
 "use strict";
-const padZero = (num) => num.toString().padStart(2, "0");
-const monthName = [
+const padZeroDates = (num) => num.toString().padStart(2, "0");
+const months = [
     "January",
     "February",
     "March",
@@ -14,7 +14,7 @@ const monthName = [
     "November",
     "December",
 ];
-const dayOfWeekName = [
+const dayOfWeek = [
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -23,23 +23,23 @@ const dayOfWeekName = [
     "Saturday",
     "Sunday",
 ];
-function getDayShortName(date) {
+function getDayShort(date) {
     const index = date.getDay();
-    return dayOfWeekName[index - 1].substring(0, 3);
+    return dayOfWeek[index - 1].substring(0, 3);
 }
-function getDayLongName(date) {
+function getDayLong(date) {
     const index = date.getDay();
-    return dayOfWeekName[index - 1];
+    return dayOfWeek[index - 1];
 }
-function getMonthShortName(date) {
+function getMonthShort(date) {
     const index = date.getMonth();
-    return monthName[index].substring(0, 3);
+    return months[index].substring(0, 3);
 }
-function getMonthLongName(date) {
+function getMonthLong(date) {
     const index = date.getMonth();
-    return monthName[index];
+    return months[index];
 }
-function getQuarter() {
+function getFullQuarter() {
     if (date.getMonth() < 2) {
         return 1;
     }
@@ -52,8 +52,11 @@ function getQuarter() {
     else if (date.getMonth() < 11) {
         return 4;
     }
+    else {
+        return 1;
+    }
 }
-function getDayOfMonth(date) {
+function getFullDayOfMonth(date) {
     const day = date.getDate().toString();
     const splitted = day.split("");
     const secondDateChar = splitted[1];
@@ -72,38 +75,39 @@ function getDayOfMonth(date) {
         day === "13") {
         return day + "th";
     }
+    return "default";
 }
-function getWeekOfYear() {
+function getWeek() {
     const janFirst = new Date(date.getFullYear(), 0, 1);
     let numberOfDays = Math.floor((+date - +janFirst) / (24 * 60 * 60 * 1000));
     return Math.ceil((date.getDay() + 1 + numberOfDays) / 7);
 }
-const dateTokens = {
+const fullDateTokens = {
     YYYY: (date) => date.getFullYear(),
-    MMMM: getMonthLongName,
-    MMM: getMonthShortName,
-    MM: (date) => padZero(date.getMonth()),
+    MMMM: getMonthLong,
+    MMM: getMonthShort,
+    MM: (date) => padZeroDates(date.getMonth()),
     M: (date) => date.getMonth(),
-    Do: getDayOfMonth,
-    DD: (date) => padZero(date.getDate()),
+    Do: getFullDayOfMonth,
+    DD: (date) => padZeroDates(date.getDate()),
     D: (date) => date.getDate(),
-    dddd: getDayLongName,
-    ddd: getDayShortName,
+    dddd: getDayLong,
+    ddd: getDayShort,
     E: (date) => date.getDay(),
-    HH: (date) => padZero(date.getHours()),
+    HH: (date) => padZeroDates(date.getHours()),
     H: (date) => date.getHours(),
-    mm: (date) => padZero(date.getMinutes()),
+    mm: (date) => padZeroDates(date.getMinutes()),
     m: (date) => date.getMinutes(),
-    ss: (date) => padZero(date.getSeconds()),
+    ss: (date) => padZeroDates(date.getSeconds()),
     s: (date) => date.getSeconds(),
-    Q: getQuarter,
-    W: getWeekOfYear,
+    Q: getFullQuarter,
+    W: getWeek,
 };
 function formatSentence(date, sentence) {
-    return Object.entries(dateTokens).reduce((result, [pattern, fun]) => {
+    return Object.entries(fullDateTokens).reduce((result, [pattern, fun]) => {
         return result.replace(pattern, fun(date).toString());
     }, sentence);
 }
-const date = new Date();
-const string = "week W ddd(E) YYYY-MMM-DD Do HH:mm:ss Q quarter Is my proof of concept!";
-console.log(formatSentence(date, string));
+const dateForFormat = new Date();
+const formatingString = "week W ddd(E) YYYY-MMM-DD Do HH:mm:ss Q quarter Is my proof of concept!";
+console.log(formatSentence(dateForFormat, formatingString));

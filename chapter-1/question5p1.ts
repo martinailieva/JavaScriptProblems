@@ -12,7 +12,7 @@ const dataObject = {
   experience: { count: 5 },
 };
 
-function weightCounter<T>(object: T): number {
+function weightCounter(object: {}): number {
   let counter = 0;
   Object.values(object).forEach((item) => {
     if (typeof item === "string") {

@@ -1,6 +1,6 @@
 "use strict";
 class Watch {
-    constructor(date = new Date(), format = null, timezone = null) {
+    constructor(date = new Date(), format = "", timezone = "") {
         this.showTime = (format = null, timezone = null) => {
             const padZero = (num) => num.toString().padStart(2, "0");
             const dateTokens = {
@@ -59,6 +59,6 @@ class Watch {
 }
 const watch = new Watch();
 // console.log(watch.showTime());
-console.log(watch.showTime("YYYY-MM-DD HH:mm:ss"));
+// console.log(watch.showTime("YYYY-MM-DD HH:mm:ss"));
 // console.log(watch.showTime("YYYY-MM-DD HH:mm:ss", "Asia/Shanghai"));
 // console.log(watch.showTime("YYYY-MM-DD HH:mm:ss", "Europe/Sofia"));

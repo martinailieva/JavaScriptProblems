@@ -1,5 +1,4 @@
 "use strict";
-const arr = [6, 4, 3, 1, 9, 44, 33, 2];
 Array.prototype.getOddNumbersCount = (array) => {
     return array.reduce((accumulator, currentValue) => currentValue % 2 > 0 ? accumulator + 1 : accumulator, 0);
 };
@@ -35,10 +34,10 @@ Array.prototype.findObject = function findObject(arr, obj) {
                 name: "John Doe",
             })));
 };
-const isObject = (value) => value && typeof value === "object";
+const isObj = (value) => value && typeof value === "object";
 Array.prototype.appendEvenOdd = function appendEvenOdd(arr1, arr2) {
     const arrays = arr2.filter(Array.isArray).flat();
-    const objects = arr2.filter(isObject);
+    const objects = arr2.filter(isObj);
     return arr1.map((el, index) => index % 2 === 0 ? [...el, ...arrays] : [...el, ...objects]);
 };
 Array.prototype.flatten = function flatten(obj, parentKey = 1, result = []) {
@@ -48,7 +47,7 @@ Array.prototype.flatten = function flatten(obj, parentKey = 1, result = []) {
             flatten(obj[key], +propName, result);
         }
         else {
-            result[propName] = obj[key];
+            result[+propName] = obj[key];
         }
     }
     return result;

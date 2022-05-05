@@ -1,9 +1,5 @@
-const padWithSpace = (number: number | string): number | string => {
-  return number <= 9
-    ? (number = "  " + number)
-    : number <= 99
-    ? (number = " " + number)
-    : number;
+const padWithSpace = (num: number): string => {
+  return num <= 9 ? `  ${num}` : num <= 99 ? ` ${num}` : num.toString();
 };
 
 const maxNumber = 5;
@@ -30,16 +26,16 @@ const spiralPattern = (maxNumber: number): string => {
 
   for (i = 0; i < maxNumber; i++, low++, high--) {
     for (j = low; j <= high; j++, n++) {
-      array[i][j] = n;
+      array[i][j] = +padWithSpace(n);
     }
     for (j = low + 1; j <= high; j++, n++) {
-      array[j][high] = n;
+      array[j][high] = +padWithSpace(n);
     }
     for (j = high - 1; j >= low; j--, n++) {
-      array[high][j] = n;
+      array[high][j] = +padWithSpace(n);
     }
     for (j = high - 1; j > low; j--, n++) {
-      array[j][low] = n;
+      array[j][low] = +padWithSpace(n);
     }
   }
 

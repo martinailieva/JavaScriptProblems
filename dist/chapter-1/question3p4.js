@@ -1,5 +1,5 @@
 "use strict";
-const rows = 5;
+const rowsPattern4 = 5;
 const diamondPattern = (row) => {
     let output = "";
     for (let i = 1; i <= row; i++) {
@@ -23,4 +23,4 @@ const diamondPattern = (row) => {
         output = "";
     }
 };
-console.log(diamondPattern(rows));
+console.log(diamondPattern(rowsPattern4));

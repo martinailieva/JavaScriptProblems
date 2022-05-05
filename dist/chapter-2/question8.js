@@ -9,7 +9,7 @@ const dataObj = [
     { name: "john.doe", role: "admin" },
 ];
 const givenWeight = 26;
-const weightCounter = (item) => {
+const weightCounterForSearch = (item) => {
     let counter = 0;
     if ((typeof item === "object" && item) || Array.isArray(item)) {
         counter += 10;

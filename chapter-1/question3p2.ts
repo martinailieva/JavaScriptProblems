@@ -1,4 +1,4 @@
-const rows = 5;
+const rowsPattern2 = 5;
 
 const halfDiamondPattern = (row: number): void => {
   let output = "";
@@ -18,4 +18,4 @@ const halfDiamondPattern = (row: number): void => {
   }
 };
 
-console.log(halfDiamondPattern(rows));
+console.log(halfDiamondPattern(rowsPattern2));

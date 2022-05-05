@@ -1,5 +1,3 @@
-type One = (string | number | number[] | { name: string })[];
-
 const array1 = [1, undefined, [1, 2, 3], "test", { name: "John Doe" }];
 
 const array2 = [
@@ -12,7 +10,7 @@ const array2 = [
   6,
 ];
 
-function insertTruthyValuesInArray<T>(arrayOne: One, arrayTwo: Array<T>): One {
+function insertTruthyValuesInArray(arrayOne: any, arrayTwo: any[]): any[] {
   const nestedArr = arrayOne.find(Array.isArray);
   const truthyValues = arrayTwo.filter(Boolean);
 

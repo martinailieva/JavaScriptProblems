@@ -1,7 +1,7 @@
-const arrayOfNumbers = [6, 4, 3, 1, 9, 44, 33, 2];
+const arrayOfNums = [6, 4, 3, 1, 9, 44, 33, 2];
 
-const betterBubbleSort = (array: number[]): number[] =>
-  array.reduce((accumulatedData, currentElement) => {
+const bubbleSort = (array: number[]): number[] =>
+  array.reduce<number[]>((accumulatedData, currentElement) => {
     let index = 0;
     while (
       index < accumulatedData.length &&
@@ -13,4 +13,4 @@ const betterBubbleSort = (array: number[]): number[] =>
     return accumulatedData;
   }, []);
 
-console.log(betterBubbleSort(arrayOfNumbers));
+console.log(betterBubbleSort(arrayOfNums));

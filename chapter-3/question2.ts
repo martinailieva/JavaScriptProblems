@@ -88,6 +88,8 @@ function getQuarter(): 1 | 2 | 3 | 4 {
     return 3;
   } else if (date.getMonth() < 11) {
     return 4;
+  } else {
+    return 1;
   }
 }
 
@@ -110,6 +112,7 @@ function getDayOfMonth(date: Date): string {
   ) {
     return day + "th";
   }
+  return "default";
 }
 
 function getWeekOfYear(): number {

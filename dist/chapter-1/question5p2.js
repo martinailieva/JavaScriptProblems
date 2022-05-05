@@ -1,5 +1,5 @@
 "use strict";
-const obj = {
+const exampleObject = {
     cards: 6,
     label: "Test",
     description: "value",
@@ -12,7 +12,7 @@ const obj = {
     },
     experience: { count: 5 },
 };
-const weightCounter = (obj) => {
+const extendedWeightCounter = (obj) => {
     let counter = 0;
     Object.values(obj).forEach((item) => {
         if (typeof item === "string") {
@@ -25,7 +25,7 @@ const weightCounter = (obj) => {
             counter += 2;
         }
         else if (typeof item === "object" && typeof item !== null) {
-            counter += 10 + weightCounter(item);
+            counter += 10 + extendedWeightCounter(item);
         }
         else if (typeof item === "function" || Array.isArray(item)) {
             counter += 10;
@@ -39,4 +39,4 @@ const weightCounter = (obj) => {
     });
     return counter;
 };
-console.log(weightCounter(obj));
+console.log(extendedWeightCounter(exampleObject));

@@ -17,7 +17,7 @@ const arr2 = [
 
 const isObject = (value: {}) => value && typeof value === "object";
 
-function appendEvenOdd<T>(arr1: (number[] | string[])[], arr2: T[]): unknown {
+function appendEvenOdd(arr1: (number[] | string[])[], arr2: any[]): unknown {
   const arrays = arr2.filter(Array.isArray).flat();
   const objects = arr2.filter(isObject);
 

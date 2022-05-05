@@ -76,6 +76,9 @@ function getQuarter() {
     else if (date.getMonth() < 11) {
         return 4;
     }
+    else {
+        return 1;
+    }
 }
 function getDayOfMonth(date) {
     const day = date.getDate().toString();
@@ -96,6 +99,7 @@ function getDayOfMonth(date) {
         day === "13") {
         return day + "th";
     }
+    return "default";
 }
 function getWeekOfYear() {
     const janFirst = new Date(date.getFullYear(), 0, 1);
