@@ -1,6 +1,6 @@
 import { it, expect } from "vitest";
 
-import { calculate } from "./question4";
+import { calculate } from "../../chapter-2/question4";
 
 it("should sum the elements of an array that have a higher value than a given number", () => {
   const array = [1, 2, 3];

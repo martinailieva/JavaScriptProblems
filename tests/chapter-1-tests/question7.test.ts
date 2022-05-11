@@ -1,6 +1,6 @@
 import { it, expect } from "vitest";
 
-import { dateToString } from "./question7";
+import { dateToString } from "../../chapter-1/question7";
 
 it("should show given date as a string", () => {
   const date = new Date();
