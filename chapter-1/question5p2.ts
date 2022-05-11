@@ -12,7 +12,7 @@ const exampleObject = {
   experience: { count: 5 },
 };
 
-const extendedWeightCounter = (obj: any): number => {
+export const extendedWeightCounter = (obj: any): number => {
   let counter = 0;
   Object.values(obj).forEach((item) => {
     if (typeof item === "string") {

@@ -1,4 +1,4 @@
-const timeDifference = (dateOne: Date, dateTwo: Date): string => {
+export const timeDifference = (dateOne: Date, dateTwo: Date): string => {
   if (dateOne instanceof Date && dateTwo instanceof Date) {
     let difference = new Date(Math.abs(+dateTwo - +dateOne));
 
@@ -17,7 +17,7 @@ const timeDifference = (dateOne: Date, dateTwo: Date): string => {
     const finalDifference =
       (years > 0 && years + +(months > 6) + " year(s)") ||
       (months > 0 && months + +(days > 15) + " month(s)") ||
-      (weeks > 0 && weeks + " weeks(s)") ||
+      (weeks > 0 && weeks + " week(s)") ||
       (days > 0 && days + +(hours > 12) + " days(s)") ||
       (hours > 0 && hours + +(minutes > 30) + " hour(s)") ||
       (minutes > 0 && minutes + +(seconds > 30) + " minute(s)") ||

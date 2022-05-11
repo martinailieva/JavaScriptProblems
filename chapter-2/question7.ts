@@ -1,6 +1,6 @@
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const randomize = (arr: number[]): number[] => {
+export const randomize = (arr: number[]): number[] => {
   const randomizeArray = arr.sort(() => Math.random() - 0.5);
   console.log(randomizeArray);
 
@@ -23,7 +23,7 @@ const randomize = (arr: number[]): number[] => {
   return getLongestSequence(sequences);
 };
 
-const getLongestSequence = (array: number[][]) => {
+export const getLongestSequence = (array: number[][]) => {
   return array.reduce((previousSequence, currentSequence) => {
     return previousSequence.length < currentSequence.length
       ? currentSequence

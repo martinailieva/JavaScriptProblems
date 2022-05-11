@@ -1,6 +1,6 @@
 const arrayOfNumbers = [6, 4, 3, 1, 9, 44, 33, 2];
 
-const betterBubbleSort = (array: number[]): number[] =>
+export const betterBubbleSort = (array: number[]): number[] =>
   array.reduce<number[]>((accumulatedData, currentElement) => {
     let index = 0;
     while (
@@ -27,6 +27,7 @@ function minMaxSort(array: number[]): number[] {
   return array;
 }
 
-const sortArray = (array: number[], fn: (a: number[]) => {}) => fn(array);
+export const sortArray = (array: number[], fn: (a: number[]) => {}) =>
+  fn(array);
 
 console.log(sortArray(arrayOfNumbers, betterBubbleSort));

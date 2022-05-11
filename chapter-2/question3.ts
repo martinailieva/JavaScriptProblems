@@ -10,7 +10,10 @@ const array2 = [
   6,
 ];
 
-function insertTruthyValuesInArray(arrayOne: any, arrayTwo: any[]): any[] {
+export function insertTruthyValuesInArray(
+  arrayOne: any,
+  arrayTwo: any[]
+): any[] {
   const nestedArr = arrayOne.find(Array.isArray);
   const truthyValues = arrayTwo.filter(Boolean);
 

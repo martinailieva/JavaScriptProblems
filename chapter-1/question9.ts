@@ -23,7 +23,7 @@ const dateTokensShort = {
   s: (date: Date) => date.getSeconds(),
 };
 
-const tokenFill = (date: Date, string: string): string => {
+export const tokenFill = (date: Date, string: string): string => {
   return Object.entries(dateTokensShort).reduce((result, [token, func]) => {
     return result.replace(token, func(date).toString());
   }, string);

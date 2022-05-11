@@ -44,7 +44,7 @@ function getMonthLong(date: Date): string {
   return months[index];
 }
 
-function getFullQuarter(): 1 | 2 | 3 | 4 {
+function getFullQuarter(date: Date): number {
   if (date.getMonth() < 2) {
     return 1;
   } else if (date.getMonth() < 5) {
@@ -54,7 +54,7 @@ function getFullQuarter(): 1 | 2 | 3 | 4 {
   } else if (date.getMonth() < 11) {
     return 4;
   } else {
-    return 1;
+    return 0;
   }
 }
 
@@ -80,7 +80,7 @@ function getFullDayOfMonth(date: Date): string {
   return "default";
 }
 
-function getWeek(): number {
+function getWeek(date: Date): number {
   const janFirst = new Date(date.getFullYear(), 0, 1);
   let numberOfDays = Math.floor((+date - +janFirst) / (24 * 60 * 60 * 1000));
   return Math.ceil((date.getDay() + 1 + numberOfDays) / 7);
@@ -108,7 +108,7 @@ const fullDateTokens = {
   W: getWeek,
 };
 
-function formatSentence(date: Date, sentence: string): string {
+export function formatSentence(date: Date, sentence: string): string {
   return Object.entries(fullDateTokens).reduce((result, [pattern, fun]) => {
     return result.replace(pattern, fun(date).toString());
   }, sentence);

@@ -12,7 +12,7 @@ const dataObject = {
   experience: { count: 5 },
 };
 
-function weightCounter(object: {}): number {
+export function weightCounter(object: {}): number {
   let counter = 0;
   Object.values(object).forEach((item) => {
     if (typeof item === "string") {

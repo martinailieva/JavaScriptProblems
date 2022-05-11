@@ -16,7 +16,11 @@ const personInformation = [
   5,
 ];
 
-const flatten = (obj: any, parentKey = 1, result: string[] = []): string[] => {
+export const flatten = (
+  obj: any,
+  parentKey = 1,
+  result: string[] = []
+): string[] => {
   for (let key in obj) {
     const propName = parentKey ? parentKey + "_" + key : key;
     if (typeof obj[key] === "object") {

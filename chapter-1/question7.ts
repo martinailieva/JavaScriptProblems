@@ -1,6 +1,6 @@
 const padWithZero = (num: number): string => num.toString().padStart(2, "0");
 
-const dateToString = (date: Date): string => {
+export const dateToString = (date: Date): string => {
   const day = padWithZero(date.getDate());
   const month = padWithZero(date.getMonth() + 1);
   const year = date.getFullYear();

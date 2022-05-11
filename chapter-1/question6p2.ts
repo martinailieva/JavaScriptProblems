@@ -1,4 +1,7 @@
-const findTheLongestWordByLetter = (str: string, letter: string): string => {
+export const findTheLongestWordByLetter = (
+  str: string,
+  letter: string
+): string => {
   const stringWords = str.replace(/[^a-zA-Z0-9 ]/g, "").split(" ");
 
   const isThereWordStartingWithPassedLetter = stringWords.some((word) =>

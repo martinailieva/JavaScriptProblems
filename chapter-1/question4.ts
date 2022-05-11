@@ -1,4 +1,4 @@
-function typeCounter(arr: any[]): string[] {
+export function typeCounter(arr: any[]): string[] {
   return arr.reduce((acc, curr) => {
     if (acc[typeof curr]) {
       acc[typeof curr]++;
@@ -6,7 +6,7 @@ function typeCounter(arr: any[]): string[] {
       acc[typeof curr] = 1;
     }
     return acc;
-  }, []);
+  }, {});
 }
 
 const exampleArray = [
