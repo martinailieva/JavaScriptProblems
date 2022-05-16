@@ -14,7 +14,7 @@ const weightCounterForSearch = (item: any): number => {
   if ((typeof item === "object" && item) || Array.isArray(item)) {
     counter += 10;
     for (const key in item) {
-      counter += weightCounter(item[key]);
+      counter += weightCounterForSearch(item[key]);
     }
   }
   if (typeof item === "string") {
@@ -34,10 +34,10 @@ const weightCounterForSearch = (item: any): number => {
   return counter;
 };
 
-const findByGivenWeight = (array: any[], weight: number): boolean => {
+export const findByGivenWeight = (array: any[], weight: number): boolean => {
   let hasEqualWeight = false;
   for (let i = 0; i < array.length; i++) {
-    if (weightCounter(array[i]) === weight) {
+    if (weightCounterForSearch(array[i]) === weight) {
       return !hasEqualWeight;
     }
   }

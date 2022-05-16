@@ -16,20 +16,20 @@ const personInformation = [
   5,
 ];
 
-export const flatten = (
-  obj: any,
-  parentKey = 1,
-  result: string[] = []
-): string[] => {
-  for (let key in obj) {
-    const propName = parentKey ? parentKey + "_" + key : key;
-    if (typeof obj[key] === "object") {
-      flatten(obj[key], +propName, result);
-    } else {
-      result[+propName] = obj[key];
-    }
-  }
-  return result;
-};
+const input = [{ person: { name: "John", skils: ["JS", "TS"] } }];
 
-console.log(flatten(personInformation));
+const isObjectOrArray = (x: {}) => typeof x === "object" && x !== null;
+
+const recursion = (objOrArr: {} | [], fields: any = []): any =>
+  Object.entries(objOrArr)
+    .map(([key, val]) =>
+      isObjectOrArray(val)
+        ? recursion(val, [...fields, key])
+        : { [[...fields, key].join("_")]: val }
+    )
+    .reduce((obj, fieldObj) => ({ ...obj, ...fieldObj }), {});
+
+export const flatten = (arr: any[]) =>
+  arr.map((x) => (isObjectOrArray(x) ? recursion(x) : x));
+
+console.log(flatten(input));

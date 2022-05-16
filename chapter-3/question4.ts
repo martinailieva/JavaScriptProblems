@@ -1,4 +1,4 @@
-class Watch {
+export class Watch {
   date: Date;
   format: string;
   timezone: string;

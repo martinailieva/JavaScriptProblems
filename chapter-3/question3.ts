@@ -1,4 +1,4 @@
-class Color {
+export class Color {
   red: number;
   green: number;
   blue: number;
@@ -21,14 +21,14 @@ class Color {
   getColorShortHex = () => {
     const regexShortHex = /^#[A-Fa-f0-9]{3}$/;
     return regexShortHex.test(this.hex)
-      ? `"${this.hex}"`
+      ? `${this.hex}`
       : "Insert valid short hex value";
   };
 
   getColorLongHex = () => {
     const regexLongHex = /^#[A-Fa-f0-9]{6}$/;
     return regexLongHex.test(this.hex)
-      ? `"${this.hex}"`
+      ? `${this.hex}`
       : "Insert valid long hex value";
   };
 }
