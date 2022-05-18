@@ -1,27 +1,29 @@
-import { it, expect } from "vitest";
+import { it, expect, describe } from "vitest";
 
 import { Color } from "../../chapter-3/question3";
 
-it("should return a rgb css value", () => {
-  const color = new Color(0, 0, 0, "#000");
+describe("Color()", () => {
+  it("should return a rgb css value", () => {
+    const color = new Color(0, 0, 0, "#000");
 
-  const result = color.getColorRGB();
+    const result = color.getColorRGB();
 
-  expect(result).toBe("rgb(0,0,0)");
-});
+    expect(result).toBe("rgb(0,0,0)");
+  });
 
-it("should return a short hex value", () => {
-  const color = new Color(0, 0, 0, "#000");
+  it("should return a short hex value", () => {
+    const color = new Color(0, 0, 0, "#000");
 
-  const result = color.getColorShortHex();
+    const result = color.getColorShortHex();
 
-  expect(result).toBe("#000");
-});
+    expect(result).toBe("#000");
+  });
 
-it("should return a long hex value", () => {
-  const color = new Color(0, 0, 0, "#000000");
+  it("should return a long hex value", () => {
+    const color = new Color(0, 0, 0, "#000000");
 
-  const result = color.getColorLongHex();
+    const result = color.getColorLongHex();
 
-  expect(result).toBe("#000000");
+    expect(result).toBe("#000000");
+  });
 });

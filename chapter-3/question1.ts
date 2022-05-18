@@ -1,5 +1,5 @@
 interface Array<T> {
-  getOddNumbersCount(array: number[]): number;
+  oddNumbers(): number;
   betterBubbleSort(array: number[]): number[];
   typeCounter(arr: any[]): string[];
   findObject(arr: any[], obj: any): unknown;
@@ -8,15 +8,13 @@ interface Array<T> {
   removeInner(arr: number[], percent: number): number[];
 }
 
-Array.prototype.getOddNumbersCount = (array: number[]): number => {
-  return array.reduce(
+Array.prototype.oddNumbers = function () {
+  return this.reduce(
     (accumulator, currentValue) =>
       currentValue % 2 > 0 ? accumulator + 1 : accumulator,
     0
   );
 };
-
-console.log(arr.getOddNumbersCount(arr));
 
 Array.prototype.betterBubbleSort = (array: number[]): number[] =>
   array.reduce<number[]>((accumulatedData, currentElement) => {
@@ -62,9 +60,9 @@ Array.prototype.findObject = function findObject(arr: any, obj: any): unknown {
 
 const isObj = (value: {}) => value && typeof value === "object";
 
-Array.prototype.appendEvenOdd = function appendEvenOdd<T>(
+Array.prototype.appendEvenOdd = function appendEvenOdd(
   arr1: (number[] | string[])[],
-  arr2: T[]
+  arr2: any[]
 ): unknown {
   const arrays = arr2.filter(Array.isArray).flat();
   const objects = arr2.filter(isObj);

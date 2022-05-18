@@ -1,11 +1,13 @@
-import { it, expect } from "vitest";
+import { it, expect, describe } from "vitest";
 
 import { findTheLongestWord } from "../../chapter-1/question6";
 
-it("should return the longest word from a given sentence excluding special characters", () => {
-  const sentence = "Hi, there!";
+describe("findTheLongestWord()", () => {
+  it("should return the longest word from a given sentence excluding special characters", () => {
+    const sentence = "Hi, there!";
 
-  const result = findTheLongestWord(sentence);
+    const result = findTheLongestWord(sentence);
 
-  expect(result).toBe("there");
+    expect(result).toBe("there");
+  });
 });
